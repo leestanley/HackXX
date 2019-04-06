@@ -337,7 +337,20 @@
         map.setMapTypeId('styled_map');
 
         var ucsd = {lat: 32.8801, lng: -117.2340};
-        var marker = new google.maps.Marker({position: ucsd, map: map});
+        marker = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: ucsd
+        });
+        marker.addListener('click', toggleBounce);
+        function toggleBounce() {
+          if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+          } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        }
       }
     </script>
     <script async defer
