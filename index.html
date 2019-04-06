@@ -331,24 +331,13 @@
                     'styled_map']
           }
         });
-        marker = new google.maps.Marker({
-          map: map,
-          draggable: true,
-          animation: google.maps.Animation.DROP,
-          position: {lat: 32.8801, lng: -117.2340}
-        });
-        marker.addListener('click', toggleBounce);
-      }
 
-      function toggleBounce() {
-        if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
-        } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
+
+        var ucsd = {lat: 32.8801, lng: -117.2340};
+        var marker = new google.maps.Marker({position: ucsd, map: map});
       }
     </script>
     <script async defer
@@ -356,4 +345,5 @@
     </script>
   </body>
 </html>
+
 
