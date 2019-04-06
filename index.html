@@ -331,14 +331,28 @@
                     'styled_map']
           }
         });
+        marker = new google.maps.Marker({
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: {lat: 32.8801, lng: -117.2340}
+        });
+        marker.addListener('click', toggleBounce);
+      }
 
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeu3--4hldPWilLmmvw2HoL0_3cyMdBs&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeu3-8-4hldPWilLmmvw2HoL0_3cyMdBs&callback=initMap">
     </script>
   </body>
 </html>
