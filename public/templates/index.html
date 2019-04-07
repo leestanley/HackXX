@@ -26,9 +26,9 @@
     <title>SAFEHOUSE</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./static/assets/css/main.css">
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="./static/assets/css/noscript.css" />
     </noscript>
     <style id="__web-inspector-hide-shortcut-style__" type="text/css">
         .__web-inspector-hide-shortcut__,
@@ -140,25 +140,25 @@
 
                     <div class="signup-content">
                         <div class="signup-form">
-                            <form method="POST" class="register-form" id="register-form" action="/redirecthelp">
+                            <form method="POST" class="register-form" id="register-form" action="/redirecthelp" enctype="multipart/form-data">
                                 <h2>I Need Help</h2>
                                 <p>Fill out this form to find a safehouse near you!</p>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="name">Name :</label>
-                                        {{ formhelp.name(placeholder="Input name") }}
+                                        {{ form.name(placeholder="Input name") }}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone-number">Phone # :</label>
-                                    {{ formhelp.phonenumber(placeholder="Input phonenumber") }}
+                                    {{ form.phonenumber(placeholder="Input phonenumber") }}
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="street">Street Address :</label>
-                                         {{ formhelp.address(placeholder="Input address") }}
+                                         {{ form.address(placeholder="Input address") }}
                                         <label for="photo">Upload Image :</label>
-                                          {{ formhelp.photo() }}
+                                          {{ form.file() }}
                                     </div>
                                 </div>
 
@@ -184,37 +184,34 @@
 
                 <div class="signup-content">
                     <div class="signup-form">
-                        <form method="POST" class="register-form" id="register-form" action = "/redirecthome">
+                        <form method="POST" class="register-form" id="register-form" action = "/redirecthome" enctype="multipart/form-data">
                             <h2>I Can Help</h2>
                             <p>Fill out this form to apply your home as a safehouse!</p>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Name :</label>
-                                    <input type="text" name="name" id="name" required="">
+                                    {{ form.name(placeholder="Input name") }}
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label for="phone-number">Phone # :</label>
-                                <input type="text" name="phone-number" id="phone-number" required="">
+                                {{ form.phonenumber(placeholder="Input phonenumber") }}
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="street">Street Address :</label>
-                                    <input type="text" name="street" id="street" required="">
-                                    <label for="city">City :</label>
-                                    <input type="text" name="city" id="city" required="">
-                                    <label for="state">State :</label>
-                                    <input type="text" name="state" id="state" required="">
+                                    {{ form.address(placeholder="Input address") }}
                                 </div>
+                                    <label for="photo">Upload Image :</label>
+                                    {{ form.file() }}
                             </div>
 
                             <div class="signup-img">
                                 <img src="./images/signup-img.jpg" alt="">
                             </div>
                             <div class="form-submit">
-                                <input type="submit" value="Reset All" class="submit __web-inspector-hide-shortcut__" name="reset" id="reset">
-                                <input type="submit" value="Submit Form" class="submit" name="submit" id="submit">
+                                    {{ form.submit() }}
                             </div>
                         </form>
                     </div>
@@ -304,13 +301,13 @@
 
     <!-- Scripts -->
 
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/jquery.scrollex.min.js"></script>
-    <script src="./assets/js/jquery.scrolly.min.js"></script>
-    <script src="./assets/js/browser.min.js"></script>
-    <script src="./assets/js/breakpoints.min.js"></script>
-    <script src="./assets/js/util.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./static/assets/js/jquery.min.js"></script>
+    <script src="./static/assets/js/jquery.scrollex.min.js"></script>
+    <script src="./static/assets/js/jquery.scrolly.min.js"></script>
+    <script src="./static/assets/js/browser.min.js"></script>
+    <script src="./static/assets/js/breakpoints.min.js"></script>
+    <script src="./static/assets/js/util.js"></script>
+    <script src="./static/assets/js/main.js"></script>
 
     <script>
         function initMap() {
