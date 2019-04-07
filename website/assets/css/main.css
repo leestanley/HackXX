@@ -3532,7 +3532,7 @@ input, select, textarea {
 		height: 100vh;
 		left: 0;
 		overflow-x: hidden;
-		overflow-y: auto;
+		overflow-y: hidden;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -3911,4 +3911,3 @@ input, select, textarea {
 			}
 
 		}
-
