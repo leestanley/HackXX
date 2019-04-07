@@ -3222,7 +3222,7 @@ input, select, textarea {
 			}
 
 		.wrapper.alt {
-			background-color: #a7a1b6;
+			background-color: #312450;
 		}
 
 		.wrapper.style1 {
@@ -3373,7 +3373,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #e6980e;
+		background-color: #312450;
 		cursor: default;
 		padding: 1.75em 2em;
 	}
@@ -3507,7 +3507,7 @@ input, select, textarea {
 		}
 
 	#footer > .inner a {
-		border-bottom-color: rgba(255, 255, 255, 0.15);
+		border-bottom-color: transparent;
 	}
 
 		#footer > .inner a:hover {
@@ -3877,7 +3877,7 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		background-attachment: fixed;
+		background-attachment: relative;
 		/*background-image: #fff;*/
 		background-position: top right;
 		background-repeat: no-repeat;
