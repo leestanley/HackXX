@@ -65,10 +65,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-'''
-{
-"address": "9500 Gilman Drive",
-"phone": "+19494137602"
-}
-'''
