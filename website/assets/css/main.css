@@ -3877,7 +3877,7 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		background-attachment: fixed;
+		background-attachment: relative;
 		/*background-image: #fff;*/
 		background-position: top right;
 		background-repeat: no-repeat;
