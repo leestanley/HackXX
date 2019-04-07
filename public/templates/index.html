@@ -45,7 +45,8 @@
                * element that contains the map. */
               #map {
                 height: 100%;
-                color: #000;
+                color: #000; !important
+
               }
               /* Optional: Makes the sample page fill the window. */
               html, body {
@@ -57,7 +58,7 @@
 </head>
 
 <body class="">
-    <div id="map"></div>
+    <div id="map" style="!important"></div>
     <!-- Sidebar -->
     <section id="sidebar">  <a href="index.html">  <img src="../static/images/logo.png" style="margin-top:20%;width:100%;height:auto;border:0"></a>
         <p>built at HackXX 2019</p>
@@ -583,6 +584,7 @@
         map.setMapTypeId('styled_map');
 
         var ucsd = {lat: 32.8801, lng: -117.2340};
+        var utc = {lat: 32.87218, lng: -117.226442};
         marker = new google.maps.Marker({
           map: map,
           draggable: false,
@@ -590,10 +592,20 @@
           position: ucsd,
           title: 'UCSD'
         });
+        var ucsd = {lat: 32.8801, lng: -117.2340};
+        marker2 = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: utc,
+          title: 'UTC'
+        });
         marker.addListener('click', function() {
            infowindow.open(map, marker);
   });
-
+        marker2.addListener('click', function() {
+           infowindow.open(map, marker2);
+  });
         marker.addListener('click', toggleBounce);
         function toggleBounce() {
           if (marker.getAnimation() !== null) {
