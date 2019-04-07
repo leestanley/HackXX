@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .gm-style-pbc {
+            transition: opacity ease-in-out;
+            background-color: rgba(0, 0, 0, 0.45);
+            text-align: center
+        }
+
+        .gm-style-pbt {
+            font-size: 22px;
+            color: white;
+            font-family: Roboto, Arial, sans-serif;
+            position: relative;
+            margin: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+    </style>
+    <title>Hyperspace by HTML5 UP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../static/assets/css/main.css">
+    <noscript>
+        <link rel="stylesheet" href="../static/assets/css/noscript.css" />
+    </noscript>
+    <style id="__web-inspector-hide-shortcut-style__" type="text/css">
+        .__web-inspector-hide-shortcut__,
+        .__web-inspector-hide-shortcut__ *,
+        .__web-inspector-hidebefore-shortcut__::before,
+        .__web-inspector-hideafter-shortcut__::after {
+            visibility: hidden !important;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/map.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/marker.js"></script>
+    <style type="text/css">
+        .gm-style {
+            font: 400 11px Roboto, Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        .gm-style img {
+            max-width: none;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/onion.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./index_files/stats.js"></script>
+    <style type="text/css">
+        @-webkit-keyframes _gm9216 {
+            0% {
+                -webkit-transform: translate3d(0px, -500px, 0);
+                -webkit-animation-timing-function: ease-in;
+            }
+            50% {
+                -webkit-transform: translate3d(0px, 0px, 0);
+                -webkit-animation-timing-function: ease-out;
+            }
+            75% {
+                -webkit-transform: translate3d(0px, -20px, 0);
+                -webkit-animation-timing-function: ease-in;
+            }
+            100% {
+                -webkit-transform: translate3d(0px, 0px, 0);
+                -webkit-animation-timing-function: ease-out;
+            }
+        }
+    </style>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="">
+    <div id="map"></div>
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                <ul>
+                    <li><a href="./website/index.html#intro" class="scrolly active">Welcome</a></li>
+                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#one" class="scrolly">I need help</a></li>
+                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#two" class="scrolly">I can help</a></li>
+                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#three" class="scrolly">Issues</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Intro -->
+        <section id="intro" class="wrapper style1 fullscreen fade-up">
+            <div id="map"></div>
+        </section>
+
+        <!-- One -->
+        <section id="one" class="wrapper style2 spotlights">
+            <section class="">
+
+                <div class="content">
+
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <form method="POST" class="form" id="form" action = action="/redirect">
+                                <h2>I Need Help</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Name :</label>
+                                        <input type="text" name="name" id="name" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone-number">Phone # :</label>
+                                    <input type="text" name="phone-number" id="phone-number" required="">
+                                </div>
+                                <div class="form-radio">
+                                    <label for="gender" class="radio-label">Gender :</label>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="gender" id="male" checked="">
+                                        <label for="male">Male</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="gender" id="female">
+                                        <label for="female">Female</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="state">State :</label>
+                                        <div class="form-select">
+                                            <select name="state" id="state">
+                                                <option value=""></option>
+                                                <option value="us">America</option>
+                                                <option value="uk">English</option>
+                                            </select>
+                                            <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City :</label>
+                                        <div class="form-select">
+                                            <select name="city" id="city">
+                                                <option value=""></option>
+                                                <option value="losangeles">Los Angeles</option>
+                                                <option value="washington">Washington</option>
+                                            </select>
+                                            <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="signup-img">
+                                    <img src="file:///C:/Users/sohyun/Documents/GitHub/HackXX/website/images/signup-img.jpg" alt="">
+                                </div>
+                                <div class="form-submit">
+                                    <input type="submit" value="Reset All" class="submit __web-inspector-hide-shortcut__" name="reset" id="reset">
+                                    <input type="submit" value="Submit Form" class="submit" name="submit" id="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Two -->
+        <section id="two" class="wrapper style3 fade-up">
+            <section class="">
+
+                <div class="content">
+
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <form method="POST" class="register-form" id="register-form">
+                                <h2>I Can Help</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Name :</label>
+                                        <input type="text" name="name" id="name" required="">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone-number">Phone # :</label>
+                                    <input type="text" name="phone-number" id="phone-number" required="">
+                                </div>
+                                <div class="form-radio">
+                                    <label for="gender" class="radio-label">Gender :</label>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="gender" id="male" checked="">
+                                        <label for="male">Male</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="gender" id="female">
+                                        <label for="female">Female</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="state">State :</label>
+                                        <div class="form-select">
+                                            <select name="state" id="state">
+                                                <option value=""></option>
+                                                <option value="us">America</option>
+                                                <option value="uk">English</option>
+                                            </select>
+                                            <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City :</label>
+                                        <div class="form-select">
+                                            <select name="city" id="city">
+                                                <option value=""></option>
+                                                <option value="losangeles">Los Angeles</option>
+                                                <option value="washington">Washington</option>
+                                            </select>
+                                            <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="signup-img">
+                                    <img src="file:///C:/Users/sohyun/Documents/GitHub/HackXX/website/images/signup-img.jpg" alt="">
+                                </div>
+                                <div class="form-submit">
+                                    <input type="submit" value="Reset All" class="submit __web-inspector-hide-shortcut__" name="reset" id="reset">
+                                    <input type="submit" value="Submit Form" class="submit" name="submit" id="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </section>
+
+        <!-- Three -->
+        <section id="three" class="wrapper style1 fade-up">
+            <div class="inner">
+                <h2>Report Issues</h2>
+                <p>If you had any issues with your HELP, please let us know!</p>
+                <div class="split style1">
+                    <section>
+                        <form method="post" action="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#">
+                            <div class="fields">
+                                <div class="field half">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                                <div class="field half">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email">
+                                </div>
+                                <div class="field">
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="message" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html" class="button submit">Send Message</a></li>
+                            </ul>
+                        </form>
+                    </section>
+                    <section>
+                        <ul class="contact">
+                            <li>
+                                <h3>Developers</h3>
+                                <span>###<br>
+                      ###<br>
+                      ###</span>
+                            </li>
+
+                            <li>
+                                <h3>Address</h3>
+                                <span>9500 Gilman Dr.<br>
+                      La Jolla, CA 92092<br>
+                      USA</span>
+                            </li>
+                            <li>
+                                <h3>Email</h3>
+                                <a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#">user@ucsd.edu</a>
+                            </li>
+                            <li>
+                                <h3>Phone</h3>
+                                <span>(000) 000-0000</span>
+                            </li>
+                            <li>
+                                <h3>Social</h3>
+                                <ul class="icons">
+                                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#" class="fa-github"><span class="label">GitHub</span></a></li>
+                                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="file:///Users/nayoung/Documents/GitHub/HackXX/website/index.html#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li>© Untitled. All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery.scrollex.min.js"></script>
+    <script src="./assets/js/jquery.scrolly.min.js"></script>
+    <script src="./assets/js/browser.min.js"></script>
+    <script src="./assets/js/breakpoints.min.js"></script>
+    <script src="./assets/js/util.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+        function initMap() {
+
+            // Create a new StyledMapType object, passing it an array of styles,
+            // and the name to be displayed on the map type control.
+            var styledMapType = new google.maps.StyledMapType(
+                [{
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#1d2c4d"
+                    }]
+                }, {
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#8ec3b9"
+                    }]
+                }, {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#1a3646"
+                    }]
+                }, {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#4b6878"
+                    }]
+                }, {
+                    "featureType": "administrative.land_parcel",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#64779e"
+                    }]
+                }, {
+                    "featureType": "administrative.neighborhood",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "administrative.province",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#4b6878"
+                    }]
+                }, {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#334e87"
+                    }]
+                }, {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#023e58"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#283d6a"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#6f9ba5"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#1d2c4d"
+                    }]
+                }, {
+                    "featureType": "poi.business",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#023e58"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#3C7680"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#304a7d"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#98a5be"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#1d2c4d"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#2c6675"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#255763"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#b0d5ce"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#023e58"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#98a5be"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#1d2c4d"
+                    }]
+                }, {
+                    "featureType": "transit.line",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#283d6a"
+                    }]
+                }, {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#3a4762"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#0e1626"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#4e6d70"
+                    }]
+                }], {
+                    name: 'Styled Map'
+                });
+
+            // Create a map object, and include the MapTypeId to add
+            // to the map type control.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 32.8801,
+                    lng: -117.2340
+                },
+                zoom: 14,
+                mapTypeControlOptions: {
+                    mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                        'styled_map'
+                    ]
+                }
+            });
+
+            //Associate the styled map with the MapTypeId and set it to display.
+            map.mapTypes.set('styled_map', styledMapType);
+            map.setMapTypeId('styled_map');
+
+            var ucsd = {
+                lat: 32.8801,
+                lng: -117.2340
+            };
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: ucsd
+            });
+            marker.addListener('click', toggleBounce);
+
+            function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+        }
+    </script>
+
+    <script async="" defer="" src="file:///Users/nayoung/Documents/GitHub/HackXX/website/index_files/js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeu3-8-4hldPWilLmmvw2HoL0_3cyMdBs&callback=initMap">
+    </script>
+
+    <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
+</body>
+
+</html>

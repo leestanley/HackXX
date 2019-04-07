@@ -331,7 +331,14 @@
                     'styled_map']
           }
         });
+        var content = "<b>Address</b>: 9500 Gilman Dr, La Jolla, CA 92093" +
+  "<br><b>Phone</b>: (858) 534-2230" +
+  "<br><b>Distance</b>: " +
+   "<br><b>Website:</b>: ";
 
+        var infowindow = new google.maps.InfoWindow({
+                 content: content
+                  });
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
@@ -341,8 +348,13 @@
           map: map,
           draggable: false,
           animation: google.maps.Animation.DROP,
-          position: ucsd
+          position: ucsd,
+          title: 'UCSD'
         });
+        marker.addListener('click', function() {
+           infowindow.open(map, marker);
+  });
+
         marker.addListener('click', toggleBounce);
         function toggleBounce() {
           if (marker.getAnimation() !== null) {
@@ -351,6 +363,7 @@
             marker.setAnimation(google.maps.Animation.BOUNCE);
           }
         }
+
       }
     </script>
     <script async defer
@@ -358,5 +371,3 @@
     </script>
   </body>
 </html>
-
-
