@@ -32,7 +32,7 @@ def messagenumber(name, address, phonenumber):
         print(docdict['phonenumber'])
         phonenumbers.append(docdict['phonenumber'])
     for i in phonenumbers:
-        client.messages.create(to=i, from_="+16264062098", body=name + "needs help:" + "Address: " + address + "Number: " + phonenumber)
+        client.messages.create(to=i, from_="+16264062098", body=name + " needs help. | " + "Address: " + address + " | Number: " + phonenumber)
         print("Sent text to: " + i)
     client.messages.create(to=phonenumber, from_="+16264062098", body="You will recieve help soon.")
 
@@ -111,7 +111,7 @@ def redirecthelp():
     #     app.instance_path, 'photos', filename
     # ))
 
-    # messagenumber(name, address, phonenumber)
+    messagenumber(name, address, phonenumber)
     return render_template('redirecthelp.html', name=name, address=address, phonenumber=phonenumber)
 
 
