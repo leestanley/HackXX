@@ -12,19 +12,36 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
 
 
-def getNumberList2(filename):
-    with open(filename, 'r') as f:
-        data = f.read()
-        phoneLists = json.loads(data)
-    for phoneList in phoneLists:
-        number = phoneList['phone']
-        client.messages.create(to=number, from_="+16264062098", body="person needs help")
-
-
-def testnumber(address, phonenumber):
+def messagenumber(address, phonenumber):
     phonenumber = "+1" + str(phonenumber)
     number = "+16262728111"
     client.messages.create(to=number, from_="+16264062098", body="Person needs help:" + "Address: " + address + "Number: " + phonenumber)
+
+
+def get_url(string):
+    address = "https://maps.googleapis.com/maps/api/geocode/json?address=" + string + "&key=AIzaSyBeu3-8-4hldPWilLmmvw2HoL0_3cyMdBs"
+    return address
+
+
+def get_addr_from_url(url):
+    import requests
+    response = requests.get(url)
+    text = response.text
+    addressLists = json.loads(text)
+    formatted_address = addressLists['results'][0]['formatted_address']
+    location = addressLists['results'][0]['geometry']['location']
+    location = (location['lat'], location['lng'])
+    return (formatted_address, location)
+
+
+def getAddress(filename):
+    with open(filename, 'r') as y:
+        dataList = y.read()
+        addressLists = json.loads(dataList)
+        # print(addressLists['results'][0])
+        formatted_address = addressLists['results'][0]['formatted_address']
+        location = addressLists['results'][0]['geometry']['location']
+        print(formatted_address, location)
 
 
 class InputForm(Form):
@@ -46,8 +63,10 @@ def index():
 def redirect():
     name = request.form['name'].upper()
     address = request.form['address'].upper()
+    address = get_addr_from_url(get_url(address))[0]
+    print(address)
     phonenumber = request.form['phonenumber']
-    testnumber(address, phonenumber)
+    messagenumber(address, phonenumber)
     return render_template('redirect.html', name=name, address=address, phonenumber=phonenumber)
 
 
