@@ -2,7 +2,7 @@
 <!-- saved from url=(0064)./index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 </style>
-		<title>HELP WebApp</title>
+		<title>SAFEHOUSE</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="./assets/css/main.css">
@@ -44,10 +44,11 @@
 				<div class="inner">
 					<nav>
 						<ul>
+              <h>SAFEHOUSE</h>
 							<li><a href="#intro" class="scrolly active">Welcome</a></li>
 							<li><a href="#one" class="scrolly">I need help</a></li>
 							<li><a href="#two" class="scrolly">I can help</a></li>
-							<li><a href="#three" class="scrolly">Issues</a></li>
+							<li><a href="#three" class="scrolly">Feedback</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -60,9 +61,12 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
                         <div id="map"></div>
 			<div class="inner">
-				<h1>HELP App</h1>
-					<p>For when you need help in the dark, made during <a href="http://html5up.net/">HACKXX</a><br>
-					inspired by <a href="https://police.ucsd.edu/services/cso.html">UCSD CSO</a>.</p>
+				<h1>SAFEHOUSE</h1>
+          <p>For when you need help in the dark,<br>
+          made during <a href="http://html5up.net/">HackXX</a> & inspired by 
+          <a href="https://police.ucsd.edu/services/cso.html">UCSD CSO (Community Service Officers)</a>.</p>
+
+          <p>We find safehouses for you to momentarily stay while waiting to be picked up.</p>
 					<ul class="actions">
 						<li><a href="./index.html#one" class="button scrolly">I need help</a></li>
 					</ul>
@@ -83,6 +87,7 @@
                 <div class="signup-form">
                     <form method="POST" class="register-form" id="register-form">
                         <h2>I Need Help</h2>
+                        <p>Fill out this form to find a safehouse near you!</p>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name :</label>
@@ -94,7 +99,7 @@
                             <label for="phone-number">Phone # :</label>
                             <input type="text" name="phone-number" id="phone-number" required="">
                         </div>
-                        <div class="form-radio">
+                        <!----div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
                             <div class="form-radio-item">
                                 <input type="radio" name="gender" id="male" checked="">
@@ -106,34 +111,37 @@
                                 <label for="female">Female</label>
                                 <span class="check"></span>
                             </div>
-                        </div>
+                        </div-->
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="state">State :</label>
-                                <div class="form-select">
+                                <label for="street">Street Address :</label>
+                                <input type="text" name="street" id="street" required="">
+                            <!----/div>
+                            <div class="form-group"-->
+                                <label for="city">City :</label>
+                                <input type="text" name="city" id="city" required="">
+                                <!----div class="form-select">
                                     <select name="state" id="state">
                                         <option value=""></option>
                                         <option value="us">America</option>
                                         <option value="uk">English</option>
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
+                                  </div>
                             </div>
-                            <div class="form-group">
-                                <label for="city">City :</label>
-                                <div class="form-select">
+                            <div class="form-group"-->
+                                <label for="state">State :</label>
+                                <input type="text" name="state" id="state" required="">
+                                <!----div class="form-select">
                                     <select name="city" id="city">
                                         <option value=""></option>
                                         <option value="losangeles">Los Angeles</option>
                                         <option value="washington">Washington</option>
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
+                                </div-->
                             </div>
                         </div>
-
-
-
 
                         <div class="signup-img">
                     <img src="./images/signup-img.jpg" alt="">
@@ -162,7 +170,62 @@
                 <div class="signup-form">
                     <form method="POST" class="register-form" id="register-form">
                         <h2>I Can Help</h2>
+                        <p>Fill out this form to apply your home as a safehouse!</p>
                         <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name :</label>
+                                <input type="text" name="name" id="name" required="">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="phone-number">Phone # :</label>
+                            <input type="text" name="phone-number" id="phone-number" required="">
+                        </div>
+                        <!----div class="form-radio">
+                            <label for="gender" class="radio-label">Gender :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="male" checked="">
+                                <label for="male">Male</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="female">
+                                <label for="female">Female</label>
+                                <span class="check"></span>
+                            </div>
+                        </div-->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="street">Street Address :</label>
+                                <input type="text" name="street" id="street" required="">
+                            <!----/div>
+                            <div class="form-group"-->
+                                <label for="city">City :</label>
+                                <input type="text" name="city" id="city" required="">
+                                <!----div class="form-select">
+                                    <select name="state" id="state">
+                                        <option value=""></option>
+                                        <option value="us">America</option>
+                                        <option value="uk">English</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                  </div>
+                            </div>
+                            <div class="form-group"-->
+                                <label for="state">State :</label>
+                                <input type="text" name="state" id="state" required="">
+                                <!----div class="form-select">
+                                    <select name="city" id="city">
+                                        <option value=""></option>
+                                        <option value="losangeles">Los Angeles</option>
+                                        <option value="washington">Washington</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div-->
+                            </div>
+
+                        <!---div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name :</label>
                                 <input type="text" name="name" id="name" required="">
@@ -208,10 +271,8 @@
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
                                 </div>
-                            </div>
+                            </div-->
                         </div>
-
-
 
 
                         <div class="signup-img">
@@ -232,8 +293,8 @@
 				<!-- Three -->
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
-							<h2>Report Issues</h2>
-							<p>If you had any issues with your HELP, please let us know!</p>
+							<h2>Give Feedback</h2>
+							<p>If you had any comments regarding your SAFEHOUSE, let us know!</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="./index.html#">
@@ -252,7 +313,7 @@
 											</div>
 										</div>
 										<ul class="actions">
-											<li><a href="./index.html" class="button submit">Send Message</a></li>
+											<li><a href="./index.html" class="button submit">Send Feedback</a></li>
 										</ul>
 									</form>
 								</section>
@@ -260,16 +321,17 @@
 									<ul class="contact">
     <li>
 											<h3>Developers</h3>
-											<span>###<br>
-											###<br>
-											###</span>
+											<span>Stanley Lee<br>
+											Yekaterina Kostina<br>
+                      Sohyun Lee<br>
+                      Nayoung Park</span>
 										</li>
 
 										<li>
 											<h3>Address</h3>
-											<span>9500 Gilman Dr.<br>
-											La Jolla, CA 92092<br>
-											USA</span>
+											<span>UC San Diego<br>
+                      9500 Gilman Dr.<br>
+                      La Jolla, CA 92093</span>
 										</li>
 										<li>
 											<h3>Email</h3>
@@ -284,7 +346,7 @@
 											<ul class="icons">
 												<li><a href="./index.html#" class="fa-twitter"><span class="label">Twitter</span></a></li>
 												<li><a href="./index.html#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="./index.html#" class="fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="https://github.com/leestanley/HackXX" class="fa-github"><span class="label">GitHub</span></a></li>
 												<li><a href="./index.html#" class="fa-instagram"><span class="label">Instagram</span></a></li>
 												<li><a href="./index.html#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
 											</ul>
