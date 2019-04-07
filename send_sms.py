@@ -55,8 +55,12 @@ def main():
     print(addrtup[0])
 
 
-doc_ref = db.collection(u'users').document(u'' + address)
-doc_ref.set({
-    u'name': u'' + name,
-    u'phonenumber': u'+1' + phonenumber
-})
+docs = db.collection(u'users').get()
+phonenumbers = []
+for doc in docs:
+    print(u'{} => {}'.format(doc.id, doc.to_dict()))
+    docdict = doc.to_dict()
+    print(docdict['phonenumber'])
+    phonenumbers.append(docdict['phonenumber'])
+
+print(phonenumbers)
