@@ -12,18 +12,25 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
 
 
+class InputForm(Form):
+    address = StringField('address', validators=[InputRequired()])
+    phonenumber = IntegerField('phonenumber', validators=[InputRequired()])
+    # gender = RadioField('gender')
+    submit = SubmitField('Submit')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # form = InputForm()
-    # if form.validate_on_submit():
-    #     return redirect(url_for('redirect'))
+    form = InputForm()
+    if form.validate_on_submit():
+        flash('You were successfully logged in')
     return render_template('index.html')
 
 
-@app.route('/redirect', methods=['GET', 'POST'])
-def redirect():
-    return render_template('redirect.html')
+# @app.route('/redirect', methods=['GET', 'POST'])
+# def redirect():
+#     return render_template('redirect.html')
 
 
 if __name__ == "__main__":
-    app.run(port=8080, debug=True)
+    app.run(port=8081, debug=True)
