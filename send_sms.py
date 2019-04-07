@@ -22,6 +22,32 @@ client = Client("ACa563b9de6ab6d42cd338e61a45450ae2", "0526090669333dff604ed558b
 #                       body="person needs help")
 
 
+def getURL(string):
+    address = "https://maps.googleapis.com/maps/api/geocode/json?address=" + string + "&key=AIzaSyBeu3-8-4hldPWilLmmvw2HoL0_3cyMdBs"
+    return address
+
+
+def getAddrFromUrl(url):
+    import requests
+    response = requests.get(url)
+    text = response.text
+    addressLists = json.loads(text)
+    formatted_address = addressLists['results'][0]['formatted_address']
+    location = addressLists['results'][0]['geometry']['location']
+    location = (location['lat'], location['lng'])
+    return (formatted_address, location)
+
+
+def getAddress(filename):
+    with open(filename, 'r') as y:
+        dataList = y.read()
+        addressLists = json.loads(dataList)
+        # print(addressLists['results'][0])
+        formatted_address = addressLists['results'][0]['formatted_address']
+        location = addressLists['results'][0]['geometry']['location']
+        print(formatted_address, location)
+
+
 def getNumberList2(filename):
     with open(filename, 'r') as f:
         data = f.read()
@@ -30,6 +56,15 @@ def getNumberList2(filename):
         number = phoneList['phone']
         client.messages.create(to=number, from_="+16264062098", body="person needs help")
 
+
+def main():
+    # getAddress('googlemap_json.txt')
+    addrtup = getAddrFromUrl(getURL("9369 lower azusa"))
+    print(addrtup[0])
+
+
+if __name__ == '__main__':
+    main()
 
 '''
 {
