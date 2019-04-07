@@ -20,7 +20,6 @@ client = Client("ACa563b9de6ab6d42cd338e61a45450ae2", "0526090669333dff604ed558b
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
-app.config['UPLOAD_FOLDER'] = './static'
 
 
 def messagenumber(name, address, phonenumber):
@@ -68,6 +67,7 @@ class InputForm(Form):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
     form = InputForm()
     return render_template('index.html', form=form)
 
@@ -79,13 +79,15 @@ def redirecthome():
     name = request.form['name'].upper()
     address = request.form['address'].upper()
     address = get_addr_from_url(get_url(address))[0]
-    file = request.files['file']
-    filename = secure_filename(f.filename)
     phonenumber = request.form['phonenumber']
-    file.save(os.path.join(
-        app.instance_path, 'photos', filename
-    ))
-    return render_template('redirecthome.html', name=name, address=address, phonenumber=phonenumber, file=file)
+
+    doc_ref = db.collection(u'users').document(u'' + address)
+    doc_ref.set({
+        u'name': u'' + name,
+        u'phonenumber': u'+1' + phonenumber
+    })
+
+    return render_template('redirecthome.html', name=name, address=address, phonenumber=phonenumber)
 
 
 @app.route('/redirecthelp', methods=['GET', 'POST'])
@@ -104,13 +106,6 @@ def redirecthelp():
     # messagenumber(name, address, phonenumber)
     return render_template('redirecthelp.html', name=name, address=address, phonenumber=phonenumber)
 
-
-# doc_ref = db.collection(u'users').document(u'alovelace')
-# doc_ref.set({
-#     u'first': u'Ada',
-#     u'last': u'Lovelace',
-#     u'born': 1815
-# })
 
 if __name__ == "__main__":
     app.run(port=8080, debug=True)
