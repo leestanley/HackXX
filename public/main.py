@@ -24,8 +24,16 @@ app.config['SECRET_KEY'] = 'DontTellAnyone'
 
 def messagenumber(name, address, phonenumber):
     phonenumber = "+1" + str(phonenumber)
-    number = "+16262728111"
-    client.messages.create(to=number, from_="+16264062098", body=name + "needs help:" + "Address: " + address + "Number: " + phonenumber)
+    docs = db.collection(u'users').get()
+    phonenumbers = []
+    for doc in docs:
+        print(u'{} => {}'.format(doc.id, doc.to_dict()))
+        docdict = doc.to_dict()
+        print(docdict['phonenumber'])
+        phonenumbers.append(docdict['phonenumber'])
+    for i in phonenumbers:
+        client.messages.create(to=i, from_="+16264062098", body=name + "needs help:" + "Address: " + address + "Number: " + phonenumber)
+        print("Sent text to: " + i)
     client.messages.create(to=phonenumber, from_="+16264062098", body="You will recieve help soon.")
 
 
