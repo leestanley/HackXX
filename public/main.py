@@ -1,37 +1,33 @@
 import json
 import requests
 from flask_wtf import FlaskForm, Form
-from wtforms import StringField, IntegerField, SubmitField
+from wtforms import StringField, IntegerField, SubmitField, FileField
 from wtforms.validators import InputRequired
 from flask import Flask, url_for, jsonify, render_template, request
 from twilio.rest import Client
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
-# Use the application default credentials
-cred = credentials.ApplicationDefault()
-firebase_admin.initialize_app(cred, {
-  'projectId': project_id,
-})
-
-db = firestore.client()
+from werkzeug.utils import secure_filename
 
 # Use a service account
-cred = credentials.Certificate('path/to/serviceAccount.json')
+cred = credentials.Certificate("firm-mariner-236104-firebase-adminsdk-8nwb7-4ca7808749.json")
 firebase_admin.initialize_app(cred)
+db = firestore.client()
 
 
 client = Client("ACa563b9de6ab6d42cd338e61a45450ae2", "0526090669333dff604ed558b50d7372")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
+app.config['UPLOAD_FOLDER'] = './static'
 
-#phonenumber should be array of housing numbers
-def messagenumber(address, phonenumber):
+
+def messagenumber(name, address, phonenumber):
     phonenumber = "+1" + str(phonenumber)
     number = "+16262728111"
-    client.messages.create(to=number, from_="+16264062098", body="Person needs help:" + "Address: " + address + "Number: " + phonenumber)
+    client.messages.create(to=number, from_="+16264062098", body=name + "needs help:" + "Address: " + address + "Number: " + phonenumber)
+    client.messages.create(to=phonenumber, from_="+16264062098", body="You will recieve help soon.")
 
 
 def get_url(string):
@@ -57,58 +53,64 @@ def getAddress(filename):
         # print(addressLists['results'][0])
         formatted_address = addressLists['results'][0]['formatted_address']
         location = addressLists['results'][0]['geometry']['location']
-        print(formatted_address, location)
+        return(formatted_address, location)
 
-#putting in for help
-class InputForm1(Form):
+# putting in for help
+
+
+class InputForm(Form):
     name = StringField('name', validators=[InputRequired()])
     address = StringField('address', validators=[InputRequired()])
     phonenumber = IntegerField('phonenumber', validators=[InputRequired()])
-    submit = SubmitField('Submit')
-
-#putting in for housing
-class InputForm2(Form):
-    name = StringField('name', validators=[InputRequired()])
-    address = StringField('address', validators=[InputRequired()])
-    phonenumber = IntegerField('phonenumber', validators=[InputRequired()])
+    file = FileField()
     submit = SubmitField('Submit')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form1 = InputForm1()
-    form2 = InputForm2()
-    if form1.validate_on_submit():
-        return redirect1(url_for('redirect1'))
-    if form2.valdiate_on_submit():
-        return redirect2(url_for('redirect2'))
-    return render_template('index.html', form2=form2)
+    form = InputForm()
+    return render_template('index.html', form=form)
 
-#convert the housing form data to firebase then use firebase to create array of phone numbers
-@app.route('/redirect1', methods=['GET', 'POST'])
-def redirect1():
-    name = request.form1['name'].upper()
-    address = request.form1['address'].upper()
+# convert the housing form data to firebase then use firebase to create array of phone numbers
+
+
+@app.route('/redirecthome', methods=['GET', 'POST'])
+def redirecthome():
+    name = request.form['name'].upper()
+    address = request.form['address'].upper()
     address = get_addr_from_url(get_url(address))[0]
-    print(address)
-    phonenumber = request.form1['phonenumber']
-    messagenumber(address, phonenumber)
-    return render_template('redirect.html', name=name, address=address, phonenumber=phonenumber)
+    file = request.files['file']
+    filename = secure_filename(f.filename)
+    phonenumber = request.form['phonenumber']
+    file.save(os.path.join(
+        app.instance_path, 'photos', filename
+    ))
+    return render_template('redirecthome.html', name=name, address=address, phonenumber=phonenumber, file=file)
 
-@app.route('/redirect2', methods=['GET', 'POST'])
-def redirect2():
-    name = request.form2['name'].upper()
-    address = request.form2['address'].upper()
-    address = get_addr_from-url(get_url(address))[0]
-    print(address)
-    phonenumber = request.form2['phonenumber']
 
-doc_ref = db.collection(u'users').document(u'alovelace')
-doc_ref.set({
-    u'first': u'Ada',
-    u'last': u'Lovelace',
-    u'born': 1815
-})
+@app.route('/redirecthelp', methods=['GET', 'POST'])
+def redirecthelp():
+    name = request.form['name'].upper()
+    address = request.form['address'].upper()
+    address = get_addr_from_url(get_url(address))[0]
+    phonenumber = request.form['phonenumber']
+
+    # file = request.form['file']
+    # filename = secure_filename(file.filename)
+    # file.save(os.path.join(
+    #     app.instance_path, 'photos', filename
+    # ))
+
+    # messagenumber(name, address, phonenumber)
+    return render_template('redirecthelp.html', name=name, address=address, phonenumber=phonenumber)
+
+
+# doc_ref = db.collection(u'users').document(u'alovelace')
+# doc_ref.set({
+#     u'first': u'Ada',
+#     u'last': u'Lovelace',
+#     u'born': 1815
+# })
 
 if __name__ == "__main__":
     app.run(port=8080, debug=True)
