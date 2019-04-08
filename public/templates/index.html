@@ -585,6 +585,8 @@
 
         var ucsd = {lat: 32.8801, lng: -117.2340};
         var utc = {lat: 32.87218, lng: -117.226442};
+        var ralphs = {lat: 32.865742, lng: -117.231941}
+        var mc = {lat: 32.867720, lng: -117.214910}
         marker = new google.maps.Marker({
           map: map,
           draggable: false,
@@ -600,11 +602,31 @@
           position: utc,
           title: 'UTC'
         });
+        marker3 = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: ralphs,
+          title: 'ralphs'
+        });
+        marker4 = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: mc,
+          title: 'mc'
+        });
         marker.addListener('click', function() {
            infowindow.open(map, marker);
   });
         marker2.addListener('click', function() {
            infowindow.open(map, marker2);
+  });
+        marker3.addListener('click', function() {
+           infowindow.open(map, marker3);
+  });
+        marker3.addListener('click', function() {
+           infowindow.open(map, marker3);
   });
         marker.addListener('click', toggleBounce);
         function toggleBounce() {
