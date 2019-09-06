@@ -2,9 +2,9 @@
 
 <h3>
 For when you need help in the dark, made during HackXX & inspired by UCSD CSO (Community Service Officers).
-
-We find safe places for you to momentarily stay while waiting to be picked up.
 </h3>
+We find safe places for you to momentarily stay while waiting to be picked up.
+
 <details>
 <summary><strong>Images: Click to expand</strong></summary>
 <div align="center">
