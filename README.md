@@ -4,7 +4,7 @@
 For when you need help in the dark, made during HackXX & inspired by UCSD CSO (Community Service Officers).
 </h3>
 We find safe places for you to momentarily stay while waiting to be picked up.
-
+<hr/>
 <details>
 <summary><strong>Images: Click to expand</strong></summary>
 <div align="center">
